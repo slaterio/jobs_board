@@ -37,7 +37,7 @@ before_action :find_job, only: [:show, :edit, :update, :destroy]
 private
 
 	def jobs_params
-		params.require(:job).permits(:title, :description, :company, :url)
+		params.require(:job).permit(:title, :description, :company, :url)
 	end
 
 	def find_job
