@@ -27,11 +27,16 @@ before_action :find_job, only: [:show, :edit, :update, :destroy]
 	end
 
 	def update
-
+		if @job.update(jobs_params)
+			redirect_to @job
+		else
+			render "Edit"
+		end
 	end
 
 	def destroy
-
+		@job.destroy
+		redirect_to root_path
 	end
 
 private
